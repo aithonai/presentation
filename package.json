@@ -1,0 +1,23 @@
+{
+  "name": "presentation-page",
+  "version": "1.0.0",
+  "description": "Anthony's Cedeño presentation page, see my contact, work, projects and trayectory.",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "sass": "sass --watch --style=compressed --no-source-map scss:css"
+  },
+  "keywords": [
+    "contact",
+    "presentation",
+    "work",
+    "projects",
+    "trayectory"
+  ],
+  "author": "aithonai <thonyjbc@gmail.com>",
+  "repository": "https://github.com/aithonai/presentation.git",
+  "license": "MIT",
+  "dependencies": {
+    "sass": "^@1.42.1"
+  }
+}

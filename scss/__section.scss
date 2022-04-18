@@ -1,0 +1,71 @@
+.ruler {
+  min-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.section {
+  width: 100%;
+  font-family: $font;
+  line-height: 1.75rem;
+  scroll-margin-top: 34px;
+  margin-bottom: 70px;
+  color: $black-color;
+  
+  .container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .info {
+    width: 50%;
+    padding: 0 3rem;
+    padding-left: 1rem;
+
+    @media screen and (max-width: $query-width) {
+      width: calc(100% - 2rem);
+      margin: 0 1rem;
+      padding: 0;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 30px;
+      font-weight: 400;
+    }
+
+    .message {
+      font-size: 18px;
+
+      span {
+        color: $primary-color;
+        background-color: transparentize($color: $primary-color, $amount: 0.95);
+        border-radius: 5px;
+        padding: 0 4px;
+      }
+    }
+  }
+
+  .image {
+    margin: 0 3rem;
+
+    @media screen and (max-width: $query-width) {
+      margin: 0 1rem;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+
+      @media screen and (max-width: $query-width) {
+        border-radius: 5px;
+      }
+    }
+  }
+}

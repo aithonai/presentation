@@ -1,0 +1,75 @@
+@use "__mixins" as mixins;
+
+.input_group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+
+  input,
+  textarea {
+    margin-bottom: 1rem;
+    background-color: $white-color;
+    border: 0;
+    outline: 0;
+    padding: 12px 16px;
+    border-radius: 5px;
+    resize: none;
+    color: $black-color;
+  }
+
+  input {
+    width: 50%;
+  }
+
+  textarea {
+    width: calc(100% - 32px);
+    height: 10rem;
+  }
+
+  .submit_button {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  button {
+    width: 68px;
+    height: 36px;
+    font-weight: $font-regular-weight;
+    background-color: transparentize($color: $primary-color, $amount: 0.85);
+    color: $primary-color;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow, background-color, 0.2s ease;
+
+    &:hover {
+      transition: box-shadow background-color;
+      background-color: transparentize($color: $primary-color, $amount: 0.7);
+      box-shadow: 0px 4px 6px
+        transparentize($color: $primary-color, $amount: 0.8);
+    }
+
+    &:active {
+      @include mixins.bumb;
+    }
+  }
+}
+
+@media screen and (max-width: $query-width) {
+  .input_group {
+    margin: 1rem 0;
+
+    input {
+      width: calc(100% - 32px);
+    }
+
+    textarea {
+      height: 10rem;
+    }
+
+    button {
+      width: 72px;
+      height: 42px;
+    }
+  }
+}

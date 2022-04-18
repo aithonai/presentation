@@ -1,0 +1,67 @@
+.footer {
+  width: 100%;
+  background-color: $header-elements-background;
+
+  .container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    font-family: $font;
+    font-weight: $font-bold-weight;
+    font-size: 18px;
+    color: $black-color;
+
+    .content {
+      margin-left: 1rem;
+      width: 260px;
+      padding: 30px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .footer_section {
+        display: flex;
+        flex-direction: column;
+        margin-right: 24px;
+
+        header {
+          margin-bottom: 9px;
+        }
+
+        .links {
+          display: flex;
+          flex-direction: column;
+          font-weight: $font-thin-weight;
+          font-size: 16px;
+
+          a {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+          }
+
+          img {
+            margin-right: 4px;
+            height: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $query-width) {
+  .footer .container .content {
+    width: 100%;
+    margin-bottom: 40px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .links {
+    font-size: 24px
+
+    img {
+      height: 24px;
+    }
+  }
+}

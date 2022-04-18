@@ -1,0 +1,53 @@
+// Scroll top button
+.scroll_top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  opacity: 1;
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  background-color: $white-color;
+  border-width: 0;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 6px 10px transparentize($color: $primary-color, $amount: 0.8);
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px transparentize($color: $primary-color, $amount: 0.5);
+  }
+
+  &:active {
+    @keyframes bump {
+      0% {
+        transform: translateY(5px);
+      }
+
+      50% {
+        transform: translateY(-3px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
+    }
+    animation: bump 0.2s ease-in-out normal forwards;
+  }
+
+  &.hidden {
+    transform: translateY(50px) rotate(180deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @media screen and (max-width: $query-width) {
+    bottom: 50px;
+
+    &.hidden { transform: translateX(50px) rotate(180deg); }
+  }
+}

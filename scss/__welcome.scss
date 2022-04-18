@@ -1,0 +1,139 @@
+@use "__mixins" as mixins;
+
+.welcome {
+  width: 100%;
+
+  @media screen and (max-height: 630px) {
+    min-height: 100vh;
+    height: 95%;
+  }
+
+  .padding {
+    padding: 0 1rem;
+  }
+
+  .main {
+    max-width: 1152px;
+    height: 95vh;
+    padding: 0 1rem;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    color: $gray-color;
+
+    .intro {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .title {
+        font-family: $big-font;
+        font-weight: $font-bold-weight;
+        font-size: 2.5rem;
+        text-align: center;
+        width: 80%;
+
+
+        @media screen and (max-height: 640px) {
+          font-size: 2rem;
+        }
+      }
+
+      .name {
+        @include mixins.gradient;
+      }
+
+      .subtitle {
+        color: $primary-color;
+        font-family: $font;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        @include mixins.gradient;
+
+        &:before {
+          content: "< ";
+        }
+        &:after {
+          content: " >";
+        }
+      }
+
+      .message {
+        all: unset;
+        font-family: $font;
+        font-size: 1.1rem;
+        color: rgb(32,32,32);
+        padding: 0.2rem 0;
+
+        @media screen and (max-height: 640px) {
+          font-size: 1rem;
+        }
+      }
+
+      @media screen and (max-width: $query-width) {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  .my_link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8rem;
+    height: 2rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background-color: transparentize($color: $primary-color, $amount: 0.85);
+    text-shadow: 0 0 20px transparentize($color: $primary-color, $amount: 0.20);
+    overflow: hidden;
+
+    a {
+      font-family: $font;
+      font-weight: $font-bold-weight;
+      font-size: 18px;
+      border: 0;
+      text-align: center;
+      cursor: pointer;
+      @include mixins.gradient;
+    }
+  }
+
+  .profile {
+    @media screen and (max-width: $query-width) {
+      margin: 0 auto;
+    }
+
+    svg {
+      margin: 0 auto;
+      margin-bottom: 2rem;
+      width: 300px;
+      height: 300px;
+      animation: FadeIn 1s ease-out normal;
+
+      @keyframes FadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(-5rem);    
+        }
+
+        100% {
+          opacity: 100;
+        }
+      }
+
+      @media screen and (max-width: $query-width) {
+        width: 250px;
+        height: auto;
+      }
+    }
+  }
+}

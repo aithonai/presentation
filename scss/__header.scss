@@ -1,0 +1,118 @@
+@use "__mixins" as mixins;
+
+.header {
+  width: 100%;
+  height: 40px;
+}
+
+.padding {
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  height: 100%;
+}
+
+.menu {
+  max-width: 1152px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  color: $gray-color;
+  font-family: $font;
+
+  .brand {
+    font-size: 18px;
+    @include mixins.gradient;
+  }
+
+  .link_container {
+    display: flex;
+  }
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  margin-left: 0.5rem;
+  font-size: 11px;
+  font-weight: $font-bold-weight;
+  color: $gray-color;
+  border-radius: 8px;
+  background-color: rgb(240, 240, 240);
+
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s ease;
+}
+
+@media screen and (min-width: $query-width) {
+  .link svg {
+    display: none;
+  }
+
+  .link:hover {
+    @include mixins.gradient;
+  }
+}
+
+@media screen and (max-width: $query-width) {
+  .header {
+    position: fixed;
+    bottom: 0;
+    background-color: #fff;
+    border-top: 1px solid transparentize($color: $black-color, $amount: 0.95);
+  }
+
+  .menu {
+    padding: 0;
+  }
+
+  .link_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    font-size: 6px;
+  }
+
+  .link {
+    font-size: 12px;
+    flex-direction: column;
+    background-color: transparent;
+
+    @keyframes turnBlack {
+      0% {
+        fill: $primary-color;
+        color: $primary-color;
+      }
+
+      100% {
+        fill: $black-color;
+        color: $black-color;
+      }
+    }
+
+    &:hover {
+      animation: turnBlack 1.5s ease-in-out normal forwards;
+      animation: bump 0.2s ease-in-out normal forwards;
+
+      svg {
+        animation: turnBlack 1.5s ease-in-out normal forwards;
+      }
+    }
+
+    svg {
+      fill: $gray-color;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  .brand {
+    display: none;
+  }
+}
